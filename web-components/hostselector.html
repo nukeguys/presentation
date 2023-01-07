@@ -1,0 +1,18 @@
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="hostselector.css" />
+    <script type="module" src="hostselector.js"></script>
+    <script>
+      function changeName() {
+        document
+          .getElementsByTagName('host-selector')[0]
+          .setAttribute('name', 'nukeguys');
+      }
+    </script>
+  </head>
+  <body>
+    <button onclick="changeName()">change name</button>
+    <host-selector name="Edinburgh" />
+  </body>
+</html>

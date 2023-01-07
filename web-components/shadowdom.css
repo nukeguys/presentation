@@ -1,0 +1,9 @@
+shadow-dom {
+  font-weight: bold;
+  color: blue;
+}
+
+/* shadow-dom 내부에 영향 없음 */
+span {
+  background-color: yellow;
+}

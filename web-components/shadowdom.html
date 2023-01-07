@@ -1,0 +1,18 @@
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="shadowdom.css" />
+    <script type="module" src="shadowdom.js"></script>
+    <script>
+      function changeName() {
+        document
+          .getElementsByTagName('shadow-dom')[0]
+          .setAttribute('name', 'nukeguys');
+      }
+    </script>
+  </head>
+  <body>
+    <button onclick="changeName()">change name</button>
+    <shadow-dom name="Edinburgh" />
+  </body>
+</html>

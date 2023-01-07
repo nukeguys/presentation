@@ -1,0 +1,14 @@
+host-selector {
+  font-weight: bold;
+  color: blue;
+}
+
+/* part 셀렉터로 shadow DOM의 특정 요소 선택 가능 */
+host-selector::part(title) {
+  color: red;
+}
+
+/* host-selector  내부에 영향 없음 */
+span {
+  background-color: yellow;
+}

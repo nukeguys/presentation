@@ -1,0 +1,9 @@
+add-attributes {
+  font-weight: bold;
+  color: blue;
+}
+
+/* add-attributes 내부에도 적용 */
+span {
+  background-color: yellow;
+}

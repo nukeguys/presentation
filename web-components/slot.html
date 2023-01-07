@@ -1,0 +1,29 @@
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <script type="module" src="slot.js"></script>
+  </head>
+  <body>
+    <template>
+      <style>
+        /* 특정 요소를 선택해서 스타일링 불가 */
+        h1 {
+          text-decoration: underline;
+        }
+        /* slot에 스타일 추가 */
+        slot[name='titleTxt'] {
+          color: blue;
+        }
+      </style>
+      <slot class="title" name="titleTxt"></slot>
+      <slot></slot>
+      <!-- slot attributes가 없는 element들 -->
+    </template>
+    <!-- template에 명시된 순서대로(titleTxt먼저) 렌더링 -->
+    <template-slot>
+      <span>먼저 있지만, 나중에 그려짐</span>
+      <!-- 특정 slot 명시 -->
+      <h1 slot="titleTxt">PlaceHolder</h1>
+    </template-slot>
+  </body>
+</html>
