@@ -31,10 +31,11 @@ GUI는 프로그램마다 사용법을 익혀야 하고 전환이 필요합니�
   - Tig
   - Terminal
 - Node.js로 CLI 만들기
-  - without 라이브러리
-  - with 라이브러리
+  - Once upon a time,,,
+  - without. 라이브러리
+  - with. 라이브러리
   - 전역으로 설치하기
-- Conclusion
+- Wrap up
 
 ## Tips for Git
 
@@ -64,7 +65,7 @@ Git 설정파일 직접 수정
 ```bash
 [alias]
     co = checkout
-    branch-name = git rev-parse --abbrev-ref HEAD
+    branch-name = rev-parse --abbrev-ref HEAD
     lg = log --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
     lgraph = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
 ```
@@ -78,9 +79,12 @@ alias 앞에 `!` 추가, 함수로 파라미터 받기 가능
     branch-name = !git rev-parse --abbrev-ref HEAD
     publish = !git push -u origin $(git branch-name)
     ch = "!git checkout $(git branch -vv | grep -v '^\\*' | fzf | awk '{print $1}')"
-
     rb = !f() { git branch -D $(git branch | grep -E $1); }; f
 ```
+
+👍🏻 [fzf](https://github.com/junegunn/fzf) is a general-purpose command-line fuzzy finder.
+
+> [https://github.com/junegunn/fzf/wiki/examples](https://github.com/junegunn/fzf/wiki/examples)
 
 ### alias 목록 출력
 
@@ -108,7 +112,7 @@ Git의 특정 이벤트(`commit`, `push`등)가 생기면 스크립트를 실행
 
 #### [husky](https://github.com/typicode/husky)
 
-git hook을 좀 더 간단히 설정할 수 있음
+> Modern native Git hooks made easy
 
 ### 예) prepare-commit-msg
 
@@ -145,37 +149,36 @@ Tig는 Git에 대한 ncurses 기반의 텍스트 모드 인터페이스로 작�
 
 ### 터미널
 
-iTerm + zsh + oh-my-zsh (https://subicura.com/mac/dev/hello.html)
-:
+iTerm + zsh + oh-my-zsh ([https://subicura.com/mac/dev/hello.html](https://subicura.com/mac/dev/hello.html))
 
-Fig (https://fig.io/)
+Fig ([https://fig.io/](https://fig.io/))
 : 기존 터미널에 통합해서 사용할 수 있는 커맨드 라인 도구
 
 > The next-generation command line.
 
-hyper (https://hyper.is/)
+hyper ([https://hyper.is/](https://fig.io/))
 : 웹기술로 만들어진 터미널
 
 > The goal of the project is to create a beautiful and extensible experience for command-line interface users, built on open web standards.
 
 ## Node.js로 CLI 만들기
 
-### CLI를 만들게 된 계기
+### Once upon a time,,,
 
 => 임베디드 환경에서 terminal 위주로 작업 - 불편함 이만저만...  
 => 업무 관련 python 유틸리티 만들어서 사용 (버전관리, 지라관리, 배포요청, 설정 변경...)  
 => 불편함 추가 - checkout 하면서 브랜치 입력하기 귀찮음 (터미널 설정, 여러 버전의 checkout 스크립트)  
-=> FE - Javascript(Node.js) 기반 CLI로 통합 해볼까? ...
+=> FE - Javascript(Node.js)로 만들어 볼까??
 
-#### 만들어볼 커맨드
+#### 만들어 볼 커맨드
 
-`checkout` - 브랜치 리스트를 보여주고 선택하면 브랜치 변경
+`checkout` - 브랜치 리스트를 보여주고 선택 or 입력하면 브랜치 변경
 
 #### 필요한 기능
 
 브랜치 목록 가져오기 / 브랜치 목록 보여주기 / 사용자 입력 받기 / 브랜치 변경하기
 
-### without 라이브러리
+### without. 라이브러리
 
 #### `git` 커맨드를 node에서 실행하려면?
 
@@ -189,7 +192,7 @@ hyper (https://hyper.is/)
 
 https://stackoverflow.com/a/41407246
 
-### with 라이브러리
+### with. 라이브러리
 
 [commander.js](https://github.com/tj/commander.js/) (or [oclif](https://oclif.io/))
 
@@ -208,6 +211,8 @@ https://stackoverflow.com/a/41407246
 > Terminal string styling done right
 
 ### 전역으로 설치하기
+
+`npm i -g`
 
 #### packages.json
 
@@ -229,14 +234,10 @@ node로 실행할 수 있도록 파일 상단에 shebang 추가
 "#!/usr/bin/env node";
 ```
 
-#### 설치
+## Wrap up
 
-`npm i -g`
-
-## Conclusion
-
-Node.js를 사용하면,
+Node.js를 사용하면,  
 +) 작성이 간단하고 많은 패키지들을 사용할 수 있어서 필요한 커맨드들을 금방 만들 수 있음  
 -) 성능은 어느정도 감안해야하고, nvm/fnm 등을 설치했다면 버전마다 전역 설치 필요 (다른 언어로 바꿀까 고민 중...)
 
-보통의 다른 프로그래밍 언어들로도 만들 수 있고 대부분 쉽게 만들게 도와주는 프레임워크나 가이드가 존재하기 때문에 각자 취향에 맞게 선택해서 만들 수 있습니다. 꼭 CLI를 직접 만들지 않더라도 각자의 생산성을 위한 방법을 찾아서 해피 코딩을 해봅시다~!
+보통의 다른 프로그래밍 언어들로도 만들 수 있고 대부분 쉽게 만들게 도와주는 프레임워크나 가이드가 존재하기 때문에 각자 취향에 맞게 선택해서 만들 수 있습니다. 그리고 꼭 CLI를 직접 만들지 않더라도 각자의 생산성을 위한 방법을 찾아서 해피 코딩을 해봅시다~!
