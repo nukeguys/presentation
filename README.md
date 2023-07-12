@@ -5,3 +5,4 @@ Recommend using a [Marp Extension](https://marketplace.visualstudio.com/items?it
 - [Web Components](./web-components/README.md)
 - [Node CLI](./node-cli/README.md)
 - [Chrome Extension](./extension/README.md)
+- [JavaScript](./javascript/README.md)
